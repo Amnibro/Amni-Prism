@@ -1,6 +1,6 @@
 # Amni-Prism
 
-Shared knowledge atlas built on PTEX. Every fact gets a unique nonce — contribute knowledge, it deduplicates automatically, and the atlas grows.
+Shared knowledge atlas built on PRISM-TEX (.ptex). Every fact gets a unique nonce — contribute knowledge, it deduplicates automatically, and the atlas grows.
 
 ## Install
 
