@@ -1,6 +1,6 @@
 # Amni-Prism
 
-Shared knowledge atlas built on PTEX nonce-addressed textures. Every fact gets a unique GF(17) nonce — contribute knowledge, it deduplicates automatically, and the atlas grows.
+Shared knowledge atlas built on PTEX. Every fact gets a unique nonce — contribute knowledge, it deduplicates automatically, and the atlas grows.
 
 ## Install
 
@@ -48,8 +48,8 @@ prism stats
 
 ## How It Works
 
-1. **GF(17) Nonces** — Every word/line/block gets a unique nonce in GF(17) finite field space. Same content = same nonce = automatic dedup.
-2. **PTEX Storage** — Knowledge stored as nonce-addressed texture maps. Vocab in NLX format, hierarchical tiers in HNA format.
+1. **Nonces** — Every word/line/block gets a unique nonce in finite field space. Same content = same nonce = automatic dedup.
+2. **PTEX Storage** — Knowledge stored as nonce-addressed maps. Vocab in NLX format, hierarchical tiers in HNA format.
 3. **Content-Hash Dedup** — SHA-256 content hashing ensures no duplicates across contributors.
 4. **Two-Tier Verification** — Small models propose (~50 tokens), large models verify (~20 tokens). ~70 tokens per verified fact.
 5. **NDJSON Manifests** — Append-only JSON-lines manifests are git-merge-friendly. No merge conflicts.
