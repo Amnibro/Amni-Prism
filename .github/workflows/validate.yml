@@ -1,0 +1,33 @@
+name: Validate PR
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e .
+      - name: Test import and field verification
+        run: |
+          python -c "
+          import prism
+          assert prism.verify_field(), 'GF17 field verification failed'
+          r = prism.contribute_text('/tmp/test_codex', 'Test fact for CI', domain='general')
+          assert r['status'] == 'added', f'Contribute failed: {r}'
+          q = prism.query_text('/tmp/test_codex', 'Test fact for CI')
+          assert q['found'], 'Query failed'
+          d = prism.contribute_text('/tmp/test_codex', 'Test fact for CI', domain='general')
+          assert d['status'] == 'duplicate', f'Dedup failed: {d}'
+          p = prism.propose('/tmp/test_codex', 'Proposed fact', confidence=0.8)
+          assert p['status'] == 'proposed', f'Propose failed: {p}'
+          v = prism.verify('/tmp/test_codex', p['hash'], prism.VERIFY_APPROVE)
+          assert v['verdict'] == 'approved', f'Verify failed: {v}'
+          print('All CI checks passed')
+          "
