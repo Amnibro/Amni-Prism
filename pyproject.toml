@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0","wheel"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "amni-prism"
-version = "0.1.1"
+version = "0.1.2"
 description = "Shared knowledge atlas built on PRISM-TEX (.ptex) nonce-addressed maps with content-hash dedup"
 readme = "README.md"
 license = "MIT"
