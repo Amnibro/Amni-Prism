@@ -8,6 +8,7 @@ ALLOWED_SOURCES = {
     'rfc': {'base': 'https://www.rfc-editor.org/rfc/', 'license': 'public-domain'},
     'python-docs': {'base': 'https://docs.python.org/3/', 'license': 'PSF'},
     'mdn': {'base': 'https://developer.mozilla.org/', 'license': 'CC-BY-SA-2.5'},
+    'huggingface': {'base': 'huggingface:', 'license': 'ODC-BY-1.0'},
 }
 def extract_facts(text: str, min_length: int = 20, max_length: int = 500) -> List[str]:
     text = re.sub(r'\[[\d,\s]+\]', '', text)
