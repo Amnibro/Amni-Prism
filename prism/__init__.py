@@ -1,5 +1,5 @@
 """Amni-Prism: Shared Knowledge Atlas built on PTEX nonce-addressed textures."""
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 from .gf17 import (P, nonce_to_rgba, rgba_to_nonce, word_to_hash_vector,
     content_hash, verify_field)
 from .codec import (NonceLexCodec, HierarchicalCodec, DOMAIN_MAP, DOMAIN_NAMES,
