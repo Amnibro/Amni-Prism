@@ -1,7 +1,7 @@
+# Disabled 2026-10-30: builds run locally on Anthony's PC/Mac
 name: Validate PR
 on:
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
 jobs:
   validate:
     runs-on: ubuntu-latest
